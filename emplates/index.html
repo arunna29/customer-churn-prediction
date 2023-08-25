@@ -1,1 +1,67 @@
 
+
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h2>Customer Churn Prediction</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" class="inline-form">
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" id="age" name="Age" required="required" />
+    </div>
+    
+
+    <div class="form-group">
+        <label for="subscription">Subscription Length Months</label>
+        <input type="text" id="subscription" name="Subscription_Length_Months" required="required" />
+    </div>
+
+    <div class="form-group">
+        <label for="bill">Monthly Bill</label>
+        <input type="text" id="bill" name="Monthly_bill" required="required" />
+    </div>
+
+    <div class="form-group">
+        <label for="usage">Total Usage GB</label>
+        <input type="text" id="usage" name="Total_Usage_GB" required="required" />
+    </div>
+    
+     <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="Gender" required="required" class="form-control">
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select>
+    </div>
+    
+    <br>
+
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+</form>
+
+
+
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
